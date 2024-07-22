@@ -1,7 +1,7 @@
 <h2 align="center">Capacitor Intercom plugin</h2>
 <p align="center"><strong><code>@foodello/intercom</code></strong></p>
 <p align="center">
-  Capacitor plugin for enabling Intercom capabilities based on the Capacitor community plugin
+  Capacitor plugin for enabling Intercom capabilities based on the <a href="https://www.npmjs.com/package/@foodello/intercom">@foodello/intercom</a>
 </p>
 
 <p align="center">
@@ -17,25 +17,20 @@
 
 ## Notice 🚀
 
-This version is for Capacitor > v5. If you are looking for plugin for Capacitor v4 please use `@foodello/intercom@^4.2.2`.
-
-Thanks for the all the authors with their work in [`@capacitor-community/intercom`](https://github.com/capacitor-community/intercom
-). We have noticed that the repository was left behind the newest updates and the original repository did not get updates quick enough once pull request were opened. So we decided to serve the newest Intercom capabilities under seperate org until the original repository catches the changes.
-
-**This plugin is built for the Capacitor v4 upwards.**
+This version is for Capacitor > v6. If you are looking for plugin for Capacitor v4 please use `@foodello/intercom`.
 
 ## Installation
 
 Using npm:
 
 ```bash
-npm install @foodello/intercom
+npm install @artbog/intercom
 ```
 
 Using yarn:
 
 ```bash
-yarn add @foodello/intercom
+yarn add @artbog/intercom
 ```
 
 Sync native files:
@@ -55,6 +50,7 @@ import { PushNotifications } from '@capacitor/push-notifications';
 ```
 
 Initialize Intercom plugin.
+
 ```js
 /**
  * Web requires loading and initializing the script of the SDK
@@ -74,36 +70,55 @@ if (!Capacitor.isNativePlatform()) {
 
 <docgen-index>
 
-* [`load(...)`](#load)
-* [`registerIdentifiedUser(...)`](#registeridentifieduser)
-* [`loginIdentifiedUser(...)`](#loginidentifieduser)
-* [`registerUnidentifiedUser()`](#registerunidentifieduser)
-* [`loginUnidentifiedUser()`](#loginunidentifieduser)
-* [`updateUser(...)`](#updateuser)
-* [`logout()`](#logout)
-* [`logEvent(...)`](#logevent)
-* [`displayMessenger()`](#displaymessenger)
-* [`displayMessageComposer(...)`](#displaymessagecomposer)
-* [`displayHelpCenter()`](#displayhelpcenter)
-* [`hideMessenger()`](#hidemessenger)
-* [`displayLauncher()`](#displaylauncher)
-* [`hideLauncher()`](#hidelauncher)
-* [`displayInAppMessages()`](#displayinappmessages)
-* [`hideInAppMessages()`](#hideinappmessages)
-* [`displayCarousel(...)`](#displaycarousel)
-* [`setUserHash(...)`](#setuserhash)
-* [`setBottomPadding(...)`](#setbottompadding)
-* [`sendPushTokenToIntercom(...)`](#sendpushtokentointercom)
-* [`receivePush(...)`](#receivepush)
-* [`displayArticle(...)`](#displayarticle)
-* [`presentContent(...)`](#presentcontent)
-* [`present(...)`](#present)
-* [`setupUnreadConversationListener()`](#setupunreadconversationlistener)
-* [`removeUnreadConversationListener()`](#removeunreadconversationlistener)
-* [`getUnreadConversationCount()`](#getunreadconversationcount)
-* [`addListener(...)`](#addlistener)
-* [Interfaces](#interfaces)
-* [Enums](#enums)
+- [Notice 🚀](#notice-)
+- [Installation](#installation)
+- [API](#api)
+  - [load(...)](#load)
+  - [registerIdentifiedUser(...)](#registeridentifieduser)
+  - [loginIdentifiedUser(...)](#loginidentifieduser)
+  - [registerUnidentifiedUser()](#registerunidentifieduser)
+  - [loginUnidentifiedUser()](#loginunidentifieduser)
+  - [updateUser(...)](#updateuser)
+  - [logout()](#logout)
+  - [logEvent(...)](#logevent)
+  - [displayMessenger()](#displaymessenger)
+  - [displayMessageComposer(...)](#displaymessagecomposer)
+  - [displayHelpCenter()](#displayhelpcenter)
+  - [hideMessenger()](#hidemessenger)
+  - [displayLauncher()](#displaylauncher)
+  - [hideLauncher()](#hidelauncher)
+  - [displayInAppMessages()](#displayinappmessages)
+  - [hideInAppMessages()](#hideinappmessages)
+  - [displayCarousel(...)](#displaycarousel)
+  - [setUserHash(...)](#setuserhash)
+  - [setBottomPadding(...)](#setbottompadding)
+  - [sendPushTokenToIntercom(...)](#sendpushtokentointercom)
+  - [receivePush(...)](#receivepush)
+  - [displayArticle(...)](#displayarticle)
+  - [presentContent(...)](#presentcontent)
+  - [present(...)](#present)
+  - [setupUnreadConversationListener()](#setupunreadconversationlistener)
+  - [removeUnreadConversationListener()](#removeunreadconversationlistener)
+  - [getUnreadConversationCount()](#getunreadconversationcount)
+  - [addListener(...)](#addlistener)
+  - [Interfaces](#interfaces)
+    - [IntercomWebConfig](#intercomwebconfig)
+    - [IntercomUserUpdateOptions](#intercomuserupdateoptions)
+    - [CompanyOption](#companyoption)
+    - [IntercomPushNotificationData](#intercompushnotificationdata)
+    - [PluginListenerHandle](#pluginlistenerhandle)
+  - [Enums](#enums)
+    - [IntercomRegionalApiBase](#intercomregionalapibase)
+    - [IntercomAlignment](#intercomalignment)
+    - [IntercomContent](#intercomcontent)
+    - [IntercomSpace](#intercomspace)
+- [Configurations](#configurations)
+  - [iOS setup](#ios-setup)
+  - [Android setup](#android-setup)
+- [License](#license)
+- [Original repository's maintainers and sponsors](#original-repositorys-maintainers-and-sponsors)
+- [Future plans](#future-plans)
+- [Contributors ✨](#contributors-)
 
 </docgen-index>
 
@@ -128,7 +143,6 @@ Only available for Web
 
 --------------------
 
-
 ### registerIdentifiedUser(...)
 
 ```typescript
@@ -140,7 +154,6 @@ registerIdentifiedUser(options: { userId?: string; email?: string; }) => Promise
 | **`options`** | <code>{ userId?: string; email?: string; }</code> |
 
 --------------------
-
 
 ### loginIdentifiedUser(...)
 
@@ -156,7 +169,6 @@ Login an identified user with Intercom.
 
 --------------------
 
-
 ### registerUnidentifiedUser()
 
 ```typescript
@@ -164,7 +176,6 @@ registerUnidentifiedUser() => Promise<void>
 ```
 
 --------------------
-
 
 ### loginUnidentifiedUser()
 
@@ -175,7 +186,6 @@ loginUnidentifiedUser() => Promise<void>
 Login an unidentified user with Intercom.
 
 --------------------
-
 
 ### updateUser(...)
 
@@ -191,7 +201,6 @@ Updates a user's attributes in Intercom.
 
 --------------------
 
-
 ### logout()
 
 ```typescript
@@ -201,7 +210,6 @@ logout() => Promise<void>
 Logs the user out of Intercom.
 
 --------------------
-
 
 ### logEvent(...)
 
@@ -217,7 +225,6 @@ Logs an event with optional metadata in Intercom.
 
 --------------------
 
-
 ### displayMessenger()
 
 ```typescript
@@ -225,7 +232,6 @@ displayMessenger() => Promise<void>
 ```
 
 --------------------
-
 
 ### displayMessageComposer(...)
 
@@ -241,7 +247,6 @@ Displays the Intercom Message Composer with an initial message.
 
 --------------------
 
-
 ### displayHelpCenter()
 
 ```typescript
@@ -249,7 +254,6 @@ displayHelpCenter() => Promise<void>
 ```
 
 --------------------
-
 
 ### hideMessenger()
 
@@ -261,7 +265,6 @@ Hides the Intercom Messenger.
 
 --------------------
 
-
 ### displayLauncher()
 
 ```typescript
@@ -271,7 +274,6 @@ displayLauncher() => Promise<void>
 Displays the default Intercom Launcher.
 
 --------------------
-
 
 ### hideLauncher()
 
@@ -283,7 +285,6 @@ Hides the Intercom Launcher.
 
 --------------------
 
-
 ### displayInAppMessages()
 
 ```typescript
@@ -294,7 +295,6 @@ Displays Intercom In-App Messages.
 
 --------------------
 
-
 ### hideInAppMessages()
 
 ```typescript
@@ -304,7 +304,6 @@ hideInAppMessages() => Promise<void>
 Hides Intercom In-App Messages.
 
 --------------------
-
 
 ### displayCarousel(...)
 
@@ -317,7 +316,6 @@ displayCarousel(options: { carouselId: string; }) => Promise<void>
 | **`options`** | <code>{ carouselId: string; }</code> |
 
 --------------------
-
 
 ### setUserHash(...)
 
@@ -333,7 +331,6 @@ Sets the HMAC user hash for Intercom Identity Verification.
 
 --------------------
 
-
 ### setBottomPadding(...)
 
 ```typescript
@@ -347,7 +344,6 @@ Sets the bottom padding for the Intercom Messenger.
 | **`options`** | <code>{ value: string; }</code> |
 
 --------------------
-
 
 ### sendPushTokenToIntercom(...)
 
@@ -363,7 +359,6 @@ Sends a push token to Intercom.
 
 --------------------
 
-
 ### receivePush(...)
 
 ```typescript
@@ -378,7 +373,6 @@ Processes a received Intercom push notification.
 
 --------------------
 
-
 ### displayArticle(...)
 
 ```typescript
@@ -390,7 +384,6 @@ displayArticle(options: { articleId: string; }) => Promise<void>
 | **`options`** | <code>{ articleId: string; }</code> |
 
 --------------------
-
 
 ### presentContent(...)
 
@@ -406,7 +399,6 @@ Presents an Intercom content item by its type and ID.
 
 --------------------
 
-
 ### present(...)
 
 ```typescript
@@ -421,7 +413,6 @@ Presents the Intercom's space.
 
 --------------------
 
-
 ### setupUnreadConversationListener()
 
 ```typescript
@@ -432,7 +423,6 @@ Setup listener for unread conversation count updates.
 
 --------------------
 
-
 ### removeUnreadConversationListener()
 
 ```typescript
@@ -442,7 +432,6 @@ removeUnreadConversationListener() => Promise<void>
 Remove listener for unread conversation count updates.
 
 --------------------
-
 
 ### getUnreadConversationCount()
 
@@ -455,7 +444,6 @@ Get current unread conversation count.
 **Returns:** <code>Promise&lt;{ unreadCount: number; }&gt;</code>
 
 --------------------
-
 
 ### addListener(...)
 
@@ -474,9 +462,7 @@ Listen for when the unread conversation count is changed.
 
 --------------------
 
-
 ### Interfaces
-
 
 #### IntercomWebConfig
 
@@ -493,10 +479,9 @@ Represent configs that are available on Intercom Web SDK.
 | **`vertical_padding`**         | <code>number</code>                                                         | Configure Intercom default launcher icon's vertical padding. Move the default launcher icon vertically. Padding from bottom of screen. Minimum value: 20. Does not work on mobile. Only available for Web                                                             |
 | **`horizontal_padding`**       | <code>number</code>                                                         | Configure Intercom default launcher icon's horizontal padding. Move the default launcher icon horizontally. Padding from right side of screen Minimum value: 20. Does not work on mobile. Only available for Web                                                      |
 | **`hide_default_launcher`**    | <code>boolean</code>                                                        | Configure Intercom default launcher icon's visibility. Hide the default launcher icon. Setting to false will forcefully show the launcher icon. Only available for Web                                                                                                |
-| **`session_duration`**         | <code>number</code>                                                         | Configure Intercom session duration. Time in milliseconds for the Intercom session to be considered active. A value of 5 * 60 * 1000 would set the expiry time to be 5 minutes Only available for Web                                                                 |
+| **`session_duration`**         | <code>number</code>                                                         | Configure Intercom session duration. Time in milliseconds for the Intercom session to be considered active. A value of 5 *60* 1000 would set the expiry time to be 5 minutes Only available for Web                                                                 |
 | **`action_color`**             | <code>string</code>                                                         | Configure action color for Intercom. Used in button links and more to highlight and emphasise. The color string can be any valid CSS Color Name HEX or RGB Only available for Web                                                                                     |
 | **`background_color`**         | <code>string</code>                                                         | Configure background color for Intercom. Used behind your team profile and other attributes. The color string can be any valid CSS Color Name HEX or RGB Only available for Web                                                                                       |
-
 
 #### IntercomUserUpdateOptions
 
@@ -516,7 +501,6 @@ Only available for iOS and Android.
 | **`customAttributes`** | <code>Record&lt;string, any&gt;</code>                  |
 | **`company`**          | <code><a href="#companyoption">CompanyOption</a></code> |
 
-
 #### CompanyOption
 
 <a href="#companyoption">CompanyOption</a> Interface.
@@ -531,7 +515,6 @@ Represents Intercom option to include company details.
 | **`monthlySpend`**     | <code>number</code>                    |                               |
 | **`plan`**             | <code>string</code>                    |                               |
 | **`customAttributes`** | <code>Record&lt;string, any&gt;</code> |                               |
-
 
 #### IntercomPushNotificationData
 
@@ -558,16 +541,13 @@ Only available for iOS and Android.
 | **`title`**                     | <code>string</code> |
 | **`priority`**                  | <code>number</code> |
 
-
 #### PluginListenerHandle
 
 | Prop         | Type                                      |
 | ------------ | ----------------------------------------- |
 | **`remove`** | <code>() =&gt; Promise&lt;void&gt;</code> |
 
-
 ### Enums
-
 
 #### IntercomRegionalApiBase
 
@@ -577,14 +557,12 @@ Only available for iOS and Android.
 | **`Eu`** | <code>'https://api-iam.eu.intercom.io'</code> |
 | **`Au`** | <code>'https://api-iam.au.intercom.io'</code> |
 
-
 #### IntercomAlignment
 
 | Members     | Value                |
 | ----------- | -------------------- |
 | **`Left`**  | <code>'left'</code>  |
 | **`Right`** | <code>'right'</code> |
-
 
 #### IntercomContent
 
@@ -596,7 +574,6 @@ Only available for iOS and Android.
 | **`Checklist`** | <code>'checklist'</code> | Only available for Web             |
 | **`News`**      | <code>'news'</code>      | Only available for Web             |
 | **`Tour`**      | <code>'tour'</code>      | Only available for Web             |
-
 
 #### IntercomSpace
 
@@ -611,6 +588,7 @@ Only available for iOS and Android.
 </docgen-api>
 
 ## Configurations
+
 ### iOS setup
 
 - `ionic start my-cap-app --capacitor`
@@ -674,29 +652,6 @@ MIT
 
 This repository is based on the wonderful work of the official `@capacitor-community/intercom` -plugin. Here we want to acknowledge the mastermind and sponsors behind that work.
 
-### Sponsors
-
-<table>
-  <tr>
-    <td align="center">
-      <a href="https://intenseloop.com">
-      <img src="https://static.intenseloop.com/assets/logo-512x512.png" width="40" />
-      </a>
-    </td>
-    <td>
-      <a href="https://intenseloop.com">
-      Intenseloop
-      </a>
-    </td>
-  </tr>
-</table>
-
-### Maintainers
-
-| Maintainer   | GitHub                                  | Social                                    |
-| ------------ | --------------------------------------- | ----------------------------------------- |
-| Stewan Silva | [stewones](https://github.com/stewones) | [@stewones](https://twitter.com/stewones) |
-
 ## Future plans
 
 If you have any ideas what we should include, please open a new issue for it.
@@ -708,26 +663,6 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="https://twitter.com/stewones"><img src="https://avatars1.githubusercontent.com/u/719763?v=4?s=75" width="75px;" alt=""/><br /><sub><b>Stew</b></sub></a><br /><a href="https://github.com/capacitor-community/intercom/commits?author=stewones" title="Code">💻</a> <a href="https://github.com/capacitor-community/intercom/commits?author=stewones" title="Documentation">📖</a></td>
-    <td align="center"><a href="https://davidseek.com/"><img src="https://avatars2.githubusercontent.com/u/17073950?v=4?s=75" width="75px;" alt=""/><br /><sub><b>David Seek</b></sub></a><br /><a href="https://github.com/capacitor-community/intercom/commits?author=davidseek" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/rnikitin"><img src="https://avatars3.githubusercontent.com/u/1829318?v=4?s=75" width="75px;" alt=""/><br /><sub><b>Roman Nikitin</b></sub></a><br /><a href="https://github.com/capacitor-community/intercom/commits?author=rnikitin" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/atomassoni"><img src="https://avatars1.githubusercontent.com/u/17362459?v=4?s=75" width="75px;" alt=""/><br /><sub><b>Anne Tomassoni</b></sub></a><br /><a href="https://github.com/capacitor-community/intercom/commits?author=atomassoni" title="Code">💻</a> <a href="https://github.com/capacitor-community/intercom/pulls?q=is%3Apr+reviewed-by%3Aatomassoni" title="Reviewed Pull Requests">👀</a></td>
-    <td align="center"><a href="https://github.com/mmodzelewski"><img src="https://avatars2.githubusercontent.com/u/7762633?v=4?s=75" width="75px;" alt=""/><br /><sub><b>Maciej Modzelewski</b></sub></a><br /><a href="https://github.com/capacitor-community/intercom/commits?author=mmodzelewski" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/spaghettiguru"><img src="https://avatars.githubusercontent.com/u/5624009?v=4?s=75" width="75px;" alt=""/><br /><sub><b>Oleg Yuzvik</b></sub></a><br /><a href="#maintenance-spaghettiguru" title="Maintenance">🚧</a></td>
-    <td align="center"><a href="https://github.com/gcorreaalves"><img src="https://avatars.githubusercontent.com/u/983426?v=4?s=75" width="75px;" alt=""/><br /><sub><b>Gustavo Corrêa Alves</b></sub></a><br /><a href="https://github.com/capacitor-community/intercom/commits?author=gcorreaalves" title="Documentation">📖</a></td>
-  </tr>
-  <tr>
-    <td align="center"><a href="https://github.com/Jealvia"><img src="https://avatars.githubusercontent.com/u/28424830?v=4?s=75" width="75px;" alt=""/><br /><sub><b>Jealvia</b></sub></a><br /><a href="#maintenance-Jealvia" title="Maintenance">🚧</a></td>
-    <td align="center"><a href="https://adamduren.com/"><img src="https://avatars.githubusercontent.com/u/581097?v=4?s=75" width="75px;" alt=""/><br /><sub><b>Adam Duren</b></sub></a><br /><a href="https://github.com/capacitor-community/intercom/commits?author=adamduren" title="Code">💻</a> <a href="#maintenance-adamduren" title="Maintenance">🚧</a></td>
-    <td align="center"><a href="https://github.com/ramikhafagi96"><img src="https://avatars.githubusercontent.com/u/38646828?v=4?s=75" width="75px;" alt=""/><br /><sub><b>Rami Khafagi</b></sub></a><br /><a href="https://github.com/capacitor-community/intercom/commits?author=ramikhafagi96" title="Code">💻</a></td>
-    <td align="center"><a href="https://rdlabo.jp/"><img src="https://avatars.githubusercontent.com/u/9690024?v=4?s=75" width="75px;" alt=""/><br /><sub><b>Masahiko Sakakibara</b></sub></a><br /><a href="#maintenance-rdlabo" title="Maintenance">🚧</a></td>
-    <td align="center"><a href="https://github.com/camdjn"><img src="https://avatars.githubusercontent.com/u/7116085?v=4?s=75" width="75px;" alt=""/><br /><sub><b>Dejardin Camille</b></sub></a><br /><a href="https://github.com/capacitor-community/intercom/commits?author=camdjn" title="Code">💻</a></td>
-    <td align="center"><a href="https://scr2em.github.io/portfolio/"><img src="https://avatars.githubusercontent.com/u/4671486?v=4?s=75" width="75px;" alt=""/><br /><sub><b>Mohamed Abdelgwad</b></sub></a><br /><a href="#maintenance-scr2em" title="Maintenance">🚧</a></td>
-    <td align="center"><a href="https://github.com/shark404"><img src="https://avatars.githubusercontent.com/u/4898049?v=4?s=75" width="75px;" alt=""/><br /><sub><b>Nathan</b></sub></a><br /><a href="#maintenance-shark404" title="Maintenance">🚧</a></td>
-  </tr>
-</table>
 
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->

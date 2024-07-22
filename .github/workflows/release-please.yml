@@ -23,7 +23,7 @@ jobs:
         id: release
         with:
           release-type: node
-          package-name: '@foodello/intercom'
+          package-name: '@artbog/intercom'
           command: release-pr
           pull-request-title-pattern: 'chore${scope}: release${component} v${version}'
           pull-request-header: ''

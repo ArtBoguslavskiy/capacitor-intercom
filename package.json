@@ -1,10 +1,13 @@
 {
-  "name": "@foodello/intercom",
-  "version": "5.0.0",
+  "name": "@artbog/intercom",
+  "version": "6.0.0",
   "description": "Enable Intercom features for Capacitor apps",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
+  "exports": {
+    ".": "./dist/index.ts"
+  },
   "scripts": {
     "all-contributors": "all-contributors",
     "build": "npm run clean && npm run docgen && tsc && rollup -c rollup.config.js",
@@ -18,7 +21,6 @@
     "lint": "npm run eslint && npm run prettier -- --check && npm run swiftlint -- lint",
     "prepublishOnly": "npm run build",
     "prettier": "prettier \"**/*.{css,html,ts,js,java}\"",
-    "prepare": "husky install",
     "swiftlint": "node-swiftlint",
     "verify": "npm run verify:ios && npm run verify:android && npm run verify:web",
     "verify:android": "cd android && ./gradlew clean build test && cd ..",
@@ -26,17 +28,17 @@
     "verify:web": "npm run build",
     "watch": "tsc --watch"
   },
-  "author": "Stewan Silva",
+  "author": "Artem Bohuslavsky",
   "license": "MIT",
   "peerDependencies": {
-    "@capacitor/core": "^5.0.0"
+    "@capacitor/core": "^6.1.1"
   },
   "devDependencies": {
-    "@capacitor/android": "^5.0.0",
-    "@capacitor/cli": "^5.0.0",
-    "@capacitor/core": "^5.0.0",
-    "@capacitor/docgen": "^0.0.10",
-    "@capacitor/ios": "^5.0.0",
+    "@capacitor/android": "^6.1.1",
+    "@capacitor/cli": "^6.1.1",
+    "@capacitor/core": "^6.1.1",
+    "@capacitor/docgen": "^0.2.2",
+    "@capacitor/ios": "^6.1.1",
     "@commitlint/cli": "^17.6.1",
     "@commitlint/config-conventional": "^17.6.1",
     "@ionic/eslint-config": "^0.3.0",
@@ -46,18 +48,12 @@
     "@types/node": "^18.16.0",
     "all-contributors-cli": "^6.20.0",
     "eslint": "^7.11.0",
-    "husky": "^8.0.0",
     "prettier": "~2.3.0",
     "prettier-plugin-java": "~1.0.2",
     "rimraf": "^3.0.2",
     "rollup": "^2.32.0",
     "swiftlint": "^1.0.1",
     "typescript": "^4.9"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   },
   "unpkg": "dist/plugin.js",
   "files": [
@@ -82,9 +78,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fiksuruoka-fi/intercom"
+    "url": "https://github.com/ArtBoguslavskiy/capacitor-intercom"
   },
   "bugs": {
-    "url": "https://github.com/fiksuruoka-fi/intercom/issues"
+    "url": "https://github.com/ArtBoguslavskiy/capacitor-intercom/issues"
   }
 }
